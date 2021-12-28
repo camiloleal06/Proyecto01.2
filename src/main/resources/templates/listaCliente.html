@@ -1,0 +1,58 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:replace="layout :: head">
+
+</head>
+
+<body>
+	<nav th:replace="layout :: menu"></nav>
+	<br />
+	<div class="container">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title" th:text="${titulo}"></h3>
+			</div>
+			<div class="card-body">
+				<div style="display: flex; justify-content: flex-end;">
+					<a th:href="@{/formcliente}" class="btn btn-primary btn-icon">
+						<i class="fa fa-plus-circle	"></i>
+						Nuevo Cliente
+					</a>
+				</div>
+				<div class="table-responsive-sm">
+					<table class="table table-striped table-hover">
+						<thead>
+							<th>ID</th>
+							<th>Nombres</th>
+							<th>Email</th>
+							<th>Telefono</th>
+							<th>Valor Plan</th>
+							<th>Acciones</th>
+						</thead>
+						<tr th:each="cliente:${listacliente}">
+							<td th:text="${cliente.id}"></td>
+							<td th:text="${cliente.nombres} +' '+ ${cliente. apellidos}"></td>
+							<td th:text="${cliente.email}"></td>
+							<td th:text="${cliente.telefono}"></td>
+							<td th:text="${cliente.planCliente.precioPlan}"></td>
+							<td>
+								<a 
+								    th:href="@{/editarcliente(id=${cliente.id})}"
+									class="btn btn-warning btn btn-rounded btn-icon ">
+									<i class="fa fa-edit"></i></a>
+
+								<a 
+									class="btn btn-danger btn btn-rounded btn-icon ">
+									<i class="fa fa-trash"></i></a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

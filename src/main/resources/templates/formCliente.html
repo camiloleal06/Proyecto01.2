@@ -1,0 +1,74 @@
+<html xmlns:th="http://thymeleaf.org">
+<head th:replace="layout :: head">
+
+</head>
+
+
+<body>
+		<nav th:replace="layout :: menu"></nav>
+		<br/>
+	<div class="container" style="width : 50%">
+	<div class="card">
+  <div class="card-header">
+   <h3 class="card-title" th:text="${tituloformulariocliente}"></h3>
+  </div>
+  <div class="card-body">
+		<form data-toggle="validator" role="form" th:object="${cliente}" th:action="@{/savecliente}" method="post">
+			<input type="hidden" th:field="*{id}" />
+			<div class="row">
+
+				<div class="col">
+				<label for="nombres" class="form-label">Nombres</label>
+				<input type="text" class="form-control" id="nombres"
+					placeholder="Ingrese Nombres" th:field="*{nombres}">
+			</div>
+			<div class="col">
+				<label for="apellidos" class="form-label">Apellidos</label>
+				<input type="text" class="form-control" id="apellidos" th:field="*{apellidos}"
+					placeholder="Ingrese Apellidos">
+			</div>
+			</div>
+			
+			<div class="row">
+				<div class="col">
+				<label for="email" class="form-label">Email</label>
+				<input type="text" class="form-control" id="email" th:field="*{email}"
+					placeholder="Ingrese Email">
+			</div>
+			
+				<div class="col">
+				<label for="telefono" class="form-label">Telefono</label>
+				<input type="text" class="form-control" id="telefono" th:field="*{telefono}"
+					placeholder="Ingrese Telefono">
+			</div>
+			</div>
+			
+			<div class="row">
+				<div class="col">
+				<label for="direccion" class="form-label">Direccion</label>
+				<input type="text" class="form-control" id="direccion" th:field="*{direccion}"
+					placeholder="Ingrese Direccion">
+			</div>
+			<div class="col">
+			<label for="plancliente" class="form-label">Seleccione Plan</label>
+			<select id="plancliente" class="form-select" 
+					th:field="*{planCliente}">
+			<option th:each="plan : ${listaplan}" 
+			th:value="${plan.id}"
+			th:text="${plan.nombrePlan}"></option>
+			</select>
+			</div>
+			</div>
+			<br/>
+			 <button class="btn btn-primary" type="submit">
+			
+			 <i class="fa fa-check-circle"></i>
+			   Guardar
+			 </button>
+		</form>
+	</div>
+	</div>
+	</div>
+</body>
+
+</html>
