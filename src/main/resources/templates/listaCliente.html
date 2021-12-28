@@ -41,8 +41,9 @@
 									class="btn btn-warning btn btn-rounded btn-icon ">
 									<i class="fa fa-edit"></i></a>
 
-								<a 
-									class="btn btn-danger btn btn-rounded btn-icon ">
+								<a
+								th:onclick="eliminarcliente([[${cliente.id}]])"
+								   class="btn btn-danger btn btn-rounded btn-icon ">
 									<i class="fa fa-trash"></i></a>
 							</td>
 						</tr>

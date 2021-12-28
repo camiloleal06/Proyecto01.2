@@ -49,7 +49,7 @@ public class PlanController {
 	}
 
 	@GetMapping("/eliminarplan/{id}")
-	public String eliminarPlan(@PathVariable Long id, SessionStatus status, Model modelo) {
+	public String eliminarPlan(@PathVariable Long id, SessionStatus status) {
 		planService.delete(id);
 		status.setComplete();
 		return "redirect:/listarplanes";
