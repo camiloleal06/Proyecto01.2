@@ -1,11 +1,10 @@
 package com.sysred.dao;
 
-import java.util.List;
-
+import com.sysred.model.Cliente;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.sysred.model.Cliente;
+import java.util.List;
 public interface InterfaceClienteService {
 public List<Cliente> findAll();
 public Page<Cliente> findAll(Pageable page); 
